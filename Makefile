@@ -8,7 +8,8 @@ PNRJSON  := $(BUILD)/$(TOP)_pnr.json
 FS       := $(BUILD)/$(TOP).fs
 
 TB_DIR   := tb
-VCD      := $(BUILD)/sim.vcd
+# Los testbenches fijan el nombre del VCD con $dumpfile("build/wave.vcd").
+VCD      := $(BUILD)/wave.vcd
 
 YOSYS    := yosys
 IVERILOG := iverilog
@@ -138,7 +139,7 @@ ifndef TB
 	@exit 1
 endif
 	$(IVERILOG) -o $(BUILD)/$(TB).vvp -I src $(TB_DIR)/$(TB).v $(SRC)
-	$(VVP) $(BUILD)/$(TB).vvp -vcd $(VCD)
+	$(VVP) $(BUILD)/$(TB).vvp
 
 wave:
 	@test -f "$(VCD)" || (echo "No waveform found. Run 'make sim TB=...' first." && exit 1)
