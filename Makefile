@@ -146,7 +146,9 @@ wave:
 
 schematic: $(BUILD)
 	$(YOSYS) -p "read_verilog $(SRC); prep -top $(TOP); write_json $(BUILD)/$(TOP)_netlist.json"
-	$(NETLISTSVG) $(BUILD)/$(TOP)_netlist.json -o $(BUILD)/$(TOP)_schematic.svg
+	# netlistsvg no admite puertos inout ni valores 'z' (I2C open-drain): sanear
+	python3 scripts/netlist_fix.py $(BUILD)/$(TOP)_netlist.json $(BUILD)/$(TOP)_netlist_svg.json
+	$(NETLISTSVG) $(BUILD)/$(TOP)_netlist_svg.json -o $(BUILD)/$(TOP)_schematic.svg
 	@echo "Schematic: $(BUILD)/$(TOP)_schematic.svg"
 
 check: lint sim
