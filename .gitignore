@@ -1,0 +1,7 @@
+build/
+*.vcd
+*.fst
+*.vvp
+*.log
+__pycache__/
+.claude/

@@ -1,0 +1,21 @@
+IO_LOC  "clk" E2;
+IO_PORT "clk" IO_TYPE=LVCMOS33 PULL_MODE=NONE BANK_VCCIO=3.3;
+
+IO_LOC  "rst" H11;
+IO_PORT "rst" IO_TYPE=LVCMOS33 PULL_MODE=DOWN BANK_VCCIO=3.3;
+
+IO_LOC  "io_sda" K1;
+IO_PORT "io_sda" IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=8 BANK_VCCIO=3.3;
+
+IO_LOC  "io_scl" K2;
+IO_PORT "io_scl" IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=8 BANK_VCCIO=3.3;
+
+// UART por adaptador USB-TTL externo en el header de 40 pines (115200 8N1):
+//   FPGA RX = J10  <- TX del adaptador
+//   FPGA TX = J11  -> RX del adaptador
+//   GND comun. Se evita el puente onboard (BL616/FT2232).
+IO_LOC  "rxd" J10;
+IO_PORT "rxd" IO_TYPE=LVCMOS33 PULL_MODE=UP BANK_VCCIO=3.3;
+
+IO_LOC  "txd" J11;
+IO_PORT "txd" IO_TYPE=LVCMOS33 PULL_MODE=NONE DRIVE=8 BANK_VCCIO=3.3;

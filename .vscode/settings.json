@@ -1,0 +1,10 @@
+{
+  "files.associations": {
+    "*.v": "verilog",
+    "*.sv": "systemverilog"
+  },
+  "teroshdl.schematic.general.backend": "yosys",
+  "teroshdl.schematic.general.yosys_path": "/usr/bin/yosys",
+  "teroshdl.linter.general.linter_verilog": "disabled",
+  "teroshdl.linter.general.linter_vhdl": "disabled"
+}
