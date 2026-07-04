@@ -288,5 +288,7 @@ las chipdb de Gowin.
 
 ## 📄 Licencia y créditos
 
+Distribuido bajo la **Licencia MIT** — ver [`LICENSE`](LICENSE).
+
 Proyecto educativo — ITLA, Sistemas Digitales. Herramientas open-source: Yosys, nextpnr,
 Project Apicula, openFPGALoader, Verilator, Icarus Verilog, GTKWave.
